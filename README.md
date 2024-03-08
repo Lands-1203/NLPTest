@@ -1,0 +1,1 @@
+使用`python -m spacy download zh_core_web_sm` 安装中文语言模型
