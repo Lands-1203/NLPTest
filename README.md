@@ -1,1 +1,1 @@
-使用`python -m spacy download zh_core_web_sm` 安装中文语言模型
+使用`pip install -r requirements.txt` 安装所需要的包
