@@ -26,18 +26,16 @@ def getAnswers( user_question ):
     for question, answer in question_db:
         question_vec = nlp(question).vector.reshape(1, -1)
         similarity = cosine_similarity(user_question_vec, question_vec)[0][0]
-        print(similarity,question)
         if similarity > highest_similarity:
             highest_similarity = similarity
             best_match = (question, answer)
 
-
-    print(f"当前最匹配的问题: {best_match[0]}")
+    print(f"\033[94m用户问题: {user_question}\033[0m")  # 蓝色
     # 如果找到了相似度足够高的问题，返回答案
-    if best_match and highest_similarity > 0.6:  # 假设阈值为0.5
-        print(f"当前最匹配的问题: {best_match[0]}\n答案: {best_match[1]}")
+    if best_match and highest_similarity > 0.6:  # 假设阈值为0.6
+        print(f"\033[92m当前最匹配的问题: {best_match[0]}\n答案: {best_match[1]}\033[0m")  # 绿色
     else:
-        print("没有找到相关问题答案。")
+        print("\033[91m没有找到相关问题答案。\033[0m")  # 红色
 
 getAnswers('登录瀚华系统')
 getAnswers('我的工号是多少？')
